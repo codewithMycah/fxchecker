@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-heading: var(--font-sans);
+  --font-sans: "JetBrains Mono", monospace;
+
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-ring: var(--ring);
+  --color-border: var(--border);
+
+  --text-caption: 0.625rem;/* 10px */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.75rem;    /* 28px */
+  --text-4xl: 2rem;       /* 32px */
+  --text-5xl: 2.5rem;     /* 40px */
+
+  --radius-sm: calc(var(--radius) * 0.5);    /* 4px */
+  --radius-md: calc(var(--radius) * 0.75);   /* 6px */
+  --radius-lg: var(--radius);                /* 8px */
+  --radius-xl: calc(var(--radius) * 1.25);   /* 10px */
+  --radius-2xl: calc(var(--radius) * 1.5);   /* 12px */
+  --radius-3xl: calc(var(--radius) * 2);     /* 16px */
+  --radius-4xl: calc(var(--radius) * 2.5);   /* 20px */
+  --radius-5xl: calc(var(--radius) * 3);     /* 24px */
+}
+
+:root {
+  /* Colors */
+  --neutral-900: #0A0A0A;
+  --neutral-700: #171719;
+  --neutral-600: #202022;
+  --neutral-500: #2E2E2E;
+  --neutral-400: #3D3D3D;
+  --neutral-300: #454547;
+  --neutral-200: #9D9D9D;
+  --neutral-100: #C6C6C6;
+  --neutral-50: #FFFFFF;
+  --lime-500: #CEF739;
+  --lime-800: #283300;
+  --green-500: #42EB05;
+  --red-500: #FF4141;
+
+  --background: var(--neutral-900);
+  --foreground: var(--neutral-50);
+  --border: var(--lime-500);
+  --ring: var(--lime-500);
+  --radius: 8px;
+  
+  font-size: 16px;
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark {
+  --background: var(--neutral-50);
+  --foreground: var(--neutral-900);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@utility text-preset-1 {
+  @apply font-bold text-5xl tracking-tight;
+}
+
+@utility text-preset-1-tab {
+  @apply font-bold text-4xl tracking-tight;
+}
+
+@utility text-preset-2 {
+  @apply text-xl leading-1.5 tracking-tight;
+}
+
+@utility text-preset-3 {
+  @apply text-base leading-1.5 tracking-wide;
+}
+
+@utility text-preset-3-med {
+  @apply font-medium text-base leading-1.5 tracking-wide;
+}
+
+@utility text-preset-3-bold {
+  @apply font-bold text-base leading-1 tracking-wide;
+}
+
+@utility text-preset-4 {
+  @apply text-sm leading-1 tracking-wide;
+}
+
+@utility text-preset-5 {
+  @apply text-xs leading-1.5 tracking-tight;
+}
+
+@utility text-preset-med {
+  @apply font-medium text-xs leading-1.5 tracking-tight;
+}
+
+@utility text-preset-6 {
+  @apply text-caption leading-0 tracking-normal;
+}
