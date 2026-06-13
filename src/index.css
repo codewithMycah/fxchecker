@@ -12,6 +12,22 @@
   --color-ring: var(--ring);
   --color-border: var(--border);
 
+  --color-neutral-900: var(--neutral-900);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-50: var(--neutral-50);
+
+  --color-lime-500: var(--lime-500);
+  --color-lime-800: var(--lime-800);
+
+  --color-green-500: var(--green-500);
+  --color-red-500: var(--red-500);
+
   --text-caption: 0.625rem;/* 10px */
   --text-xs: 0.75rem;     /* 12px */
   --text-sm: 0.875rem;    /* 14px */
