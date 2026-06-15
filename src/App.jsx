@@ -1,12 +1,19 @@
+import { useRoutes } from "react-router-dom"
 import Navbar from "./components/layout/Navbar"
-import LiveMarket from "./components/LiveMarket"
+import Home from "./pages/Home"
 
 function App() {
+  const element = useRoutes([
+    {
+      path: '/',
+      element: <Home />
+    }
+  ])
 
   return (
     <main>
       <Navbar />
-      <LiveMarket />
+      {element}
     </main>
   )
 }
