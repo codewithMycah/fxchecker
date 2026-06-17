@@ -137,3 +137,11 @@
 @utility text-preset-6 {
   @apply text-caption leading-0 tracking-normal;
 }
+
+@utility button-filled {
+  @apply bg-lime-500 px-3 py-2 rounded-lg flex items-center justify-between uppercase text-preset-5 font-medium text-neutral-900;
+}
+
+@utility button-outline {
+  @apply bg-transparent border px-3 py-2 rounded-lg flex items-center justify-between uppercase text-preset-5 font-medium text-neutral-50 ;
+}

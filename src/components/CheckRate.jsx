@@ -1,35 +1,47 @@
 import ExchangeIcon from "../assets/icon-exchange.svg"
-import ArrowIcon from "../assets/Arrow"
+import StarOutline from "../assets/icon-star.svg"
+import CurrencyPicker from "./CurrencyPicker"
 
 const CheckRate = () => {
 
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-preset-2">CHECK THE RATE</h1>
-      <div className="bg-neutral-700 rounded-2xl p-5">
-        <form>
+      <div className="bg-neutral-700 rounded-2xl">
+        <form className="border-b-2 border-dashed border-neutral-500 p-5">
           {/* Send & Receive */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 *:p-5 *:border-2 *:border-neutral-500 *:rounded-xl">
-            <div className="w-full ">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 *:p-5 *:border-2 *:border-neutral-500 *:rounded-xl *:bg-neutral-500/50">
+            <div className="w-full">
               <p className="text-preset-4 text-neutral-100 mb-5">SEND</p>
-              <div className="flex flex-row items-center justify-between">
+              <div className="flex flex-row items-center justify-between gap-4">
                 <input type="text" className="w-full text-preset-1 text-neutral-200" placeholder="0" />
+                <CurrencyPicker />
               </div>
             </div>
-            <div>
-              <img src={ExchangeIcon} alt="" className="rotate-90 md:rotate-0" />
-            </div>
+            <img src={ExchangeIcon} alt="Exchange" className="rotate-90 md:rotate-0" />
             <div className="w-full">
               <p className="text-preset-4 text-neutral-100 mb-5">RECEIVE</p>
               <div className="flex flex-row items-center justify-between gap-4">
                 <input type="text" className="w-full text-preset-1 text-neutral-200" placeholder="0" />
-                <div className="bg-neutral-500 border-2 border-neutral-400 p-2.5 rounded-xl flex flex-row items-center justify-items-center gap-2">
-                  USD <ArrowIcon />
-                </div>
+                <CurrencyPicker />
               </div>
             </div>
           </div>
         </form>
+        <div className="p-5 gap-6 flex flex-col items-center md:flex-row text-center md:text-left ">
+          {/* rate */}
+          <span className="text-preset-6 md:text-preset-5">1 USD = </span>
+          {/* buttons */}
+          <div className="flex flex-row gap-2">
+            <button className="button-outline">
+              <img src={StarOutline} alt="favorite" />
+              Favorite
+            </button>
+            <button className="button-outline">
+              Log Conversion
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   )
