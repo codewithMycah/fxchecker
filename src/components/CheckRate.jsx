@@ -15,7 +15,7 @@ const CheckRate = () => {
               <p className="text-preset-4 text-neutral-100 mb-5">SEND</p>
               <div className="flex flex-row items-center justify-between gap-4">
                 <input type="text" className="w-full text-preset-1 text-neutral-200" placeholder="0" />
-                <CurrencyPicker />
+                <CurrencyPicker defaultCurrency="USD"/>
               </div>
             </div>
             <img src={ExchangeIcon} alt="Exchange" className="rotate-90 md:rotate-0" />
@@ -23,17 +23,17 @@ const CheckRate = () => {
               <p className="text-preset-4 text-neutral-100 mb-5">RECEIVE</p>
               <div className="flex flex-row items-center justify-between gap-4">
                 <input type="text" className="w-full text-preset-1 text-neutral-200" placeholder="0" />
-                <CurrencyPicker />
+                <CurrencyPicker defaultCurrency="EUR" />
               </div>
             </div>
           </div>
         </form>
         <div className="p-5 gap-6 flex flex-col items-center md:flex-row text-center md:text-left ">
           {/* rate */}
-          <span className="text-preset-6 md:text-preset-5">1 USD = </span>
+          <span className="text-preset-6 md:text-preset-5">1 USD = 0.8530 EUR</span>
           {/* buttons */}
           <div className="flex flex-row gap-2">
-            <button className="button-outline">
+            <button className="button-outline flex gap-2">
               <img src={StarOutline} alt="favorite" />
               Favorite
             </button>
