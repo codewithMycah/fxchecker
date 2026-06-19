@@ -1,14 +1,10 @@
 import { useState } from "react"
 import ArrowIcon from "../assets/Arrow"
+import History from "./History"
 
-const tabContent = {
-  history: "History",
-  compare: "Compare",
-  favorites: "Favorites",
-  log: "Log",
-}
+const tabs = ["history", "compare", "favorites", "log"];
 
-const Details = () => {
+const Details = ({ currency1, currency2 }) => {
   const [selected, setSelected] = useState("history")
   const [isOpen, setIsOpen] = useState(false)
 
@@ -31,7 +27,7 @@ const Details = () => {
 
         {isOpen && (
           <div className="absolute w-full z-20 mt-2 rounded-xl bg-neutral-700 border border-neutral-600 flex flex-col">
-            {Object.keys(tabContent).map((tab) => (
+            {tabs.map((tab) => (
               <button
                 key={tab}
                 type="button"
@@ -46,7 +42,7 @@ const Details = () => {
       </div>
 
       <div className="hidden md:flex border-b border-neutral-600">
-        {Object.keys(tabContent).map((tab) => (
+        {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setSelected(tab)}
@@ -62,7 +58,16 @@ const Details = () => {
       </div>
 
       <div className="mt-4">
-        {tabContent[selected]}
+        {selected === "history" && (
+          <History
+            currency1={currency1}
+            currency2={currency2}
+          />
+        )}
+
+        {selected === "compare" && "Compare"}
+        {selected === "favorites" && "Favorites"}
+        {selected === "log" && "Log"}
       </div>
     </div>
   )

@@ -1,21 +1,34 @@
 import { useEffect, useState } from "react"
+import Skeleton from "react-loading-skeleton"
 import { getLatestExchangeRates } from "../services/api"
 import BaseQuoteRate from "./BaseQuoteRate"
 
 const LiveMarket = () => {
+  const [isLoading, setIsLoading] = useState(false)
   const [exchangeRates, setExchangeRates] = useState([])
 
   useEffect(() => {
     const fetchLatestExchangeRates = async () => {
       try {
+        setIsLoading(true)
         const data = await getLatestExchangeRates("USD")
         setExchangeRates(data.slice(0,10))
       } catch (err) {
         console.error(err)
+      } finally {
+        setIsLoading(false)
       }
     }
     fetchLatestExchangeRates()
   }, [])
+
+  if (isLoading) {
+    return (
+      <div className="h-12">
+        <Skeleton className="h-full w-full" />
+      </div>
+    )
+  }
 
   return (
     <div className="h-12 flex flex-row items-center">

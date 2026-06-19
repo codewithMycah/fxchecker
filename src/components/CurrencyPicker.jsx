@@ -26,7 +26,7 @@ const groupedCurrencies = [
   },
 ]
 
-export default function CurrencyPicker({ defaultCurrency }) {
+export default function CurrencyPicker({ defaultCurrency, setDefaultCurrency }) {
   const selectedCurrency = Object.values(currencies)
     .filter((currency) => currency.code === defaultCurrency)
 
@@ -34,6 +34,7 @@ export default function CurrencyPicker({ defaultCurrency }) {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleSelect = (currency) => {
+    setDefaultCurrency(currency)
     setSelected(currency)
     setIsOpen(false)
   }
