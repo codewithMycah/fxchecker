@@ -12,7 +12,7 @@ const LiveMarket = () => {
       try {
         setIsLoading(true)
         const data = await getLatestExchangeRates("USD")
-        setExchangeRates(data.slice(0,10))
+        setExchangeRates(data.slice(0,15))
       } catch (err) {
         console.error(err)
       } finally {
@@ -37,9 +37,11 @@ const LiveMarket = () => {
         <span className="ml-2 uppercase text-neutral-900 text-nowrap text-preset-6 md:text-preset-5">Live Markets</span>
       </div>
       {/* Today's Rate and Percent Change */}
-      {exchangeRates && exchangeRates.map(({base, quote, pair, rate}, index) => (
-        <BaseQuoteRate key={index} base={base} quote={quote} pair={pair} rate={rate} />
-      ))}
+      <div className="flex flex-row items-center overflow-hidden">
+        {exchangeRates && exchangeRates.map(({base, quote, pair, rate}, index) => (
+          <BaseQuoteRate key={index} base={base} quote={quote} pair={pair} rate={rate} />
+        ))}
+      </div>
     </div>
   )
 }

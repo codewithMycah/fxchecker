@@ -34,7 +34,7 @@ export default function CurrencyPicker({ defaultCurrency, setDefaultCurrency }) 
   const [isOpen, setIsOpen] = useState(false)
 
   const handleSelect = (currency) => {
-    setDefaultCurrency(currency)
+    setDefaultCurrency(currency.code)
     setSelected(currency)
     setIsOpen(false)
   }
@@ -44,7 +44,7 @@ export default function CurrencyPicker({ defaultCurrency, setDefaultCurrency }) 
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full rounded-xl px-4 py-3 flex items-center justify-between bg-neutral-500 hover:bg-neutral-400"
+        className="w-full rounded-xl px-4 py-3 flex items-center justify-between bg-neutral-500 dark:bg-neutral-100 hover:bg-neutral-400 hover:cursor-pointer"
       >
         <span className="flex items-center gap-3">
           <img
@@ -52,7 +52,7 @@ export default function CurrencyPicker({ defaultCurrency, setDefaultCurrency }) 
             alt={selected.country}
             className="w-6 h-6 rounded-full object-cover"
           />
-          <span className="text-preset-4 text-neutral-50">{selected.code}</span>
+          <span className="text-preset-4 text-neutral-50 dark:text-neutral-900">{selected.code}</span>
         </span>
 
         <span><ArrowIcon /></span>

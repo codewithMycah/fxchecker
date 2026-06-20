@@ -115,7 +115,7 @@
 }
 
 @utility text-preset-3-med {
-  @apply font-medium text-base leading-1.5 tracking-wide;
+  @apply font-medium text-base leading-3 tracking-wider;
 }
 
 @utility text-preset-3-bold {
@@ -127,7 +127,7 @@
 }
 
 @utility text-preset-5 {
-  @apply text-xs leading-1.5 tracking-tight;
+  @apply text-xs leading-1.5 tracking-wide;
 }
 
 @utility text-preset-med {
@@ -139,9 +139,20 @@
 }
 
 @utility button-filled {
-  @apply bg-lime-500 px-3 py-2 rounded-lg flex items-center justify-between uppercase text-preset-5 font-medium text-neutral-900;
+  @apply bg-lime-500 px-3 py-2 rounded-xl flex items-center justify-between uppercase text-preset-5 font-medium text-neutral-900;
 }
 
 @utility button-outline {
-  @apply bg-transparent border px-3 py-2 rounded-lg flex items-center justify-between uppercase text-preset-5 font-medium text-neutral-50 ;
+  @apply bg-transparent border px-3 py-2 rounded-xl flex items-center justify-between uppercase text-preset-5 font-medium text-neutral-50 ;
+}
+
+@utility no-spinner {
+  -moz-appearance: textfield;
+  appearance: textfield;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
