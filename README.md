@@ -31,8 +31,6 @@ A responsive currency converter app that allows users to check exchange rates, s
 
 ## Screenshot
 
-Add screenshot here:
-
 <img width="1501" height="1243" alt="Screenshot 2026-06-26 224158" src="https://github.com/user-attachments/assets/8972a927-8047-492d-bec7-10112bd8c9e5" />
 
 ## Links
