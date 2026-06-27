@@ -16,18 +16,18 @@ A responsive currency converter app that allows users to check exchange rates, s
 * Responsive layout for mobile, tablet, and desktop
 * Loading skeletons while data is being fetched
 * Error handling for API requests
-* Dark-themed UI
+* Dark and light themed UI
 
 ## Built With
 
-* React JS
-* Vite
-* Tailwind CSS
-* JavaScript
-* Chart.js
-* Frankfurter API
-* Heroicons
-* Lucide React
+![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=for-the-badge)
+![Vite](https://img.shields.io/badge/-Vite-646CFF?logo=vite&logoColor=white&style=for-the-badge)
+![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white&style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge)
+![Chart.js](https://img.shields.io/badge/-Chart.js-FF6384?logo=chartdotjs&logoColor=white&style=for-the-badge)
+![Frankfurter API](https://img.shields.io/badge/-Frankfurter_API-4CAF50?style=for-the-badge)
+![Heroicons](https://img.shields.io/badge/-Heroicons-0F172A?style=for-the-badge)
+![Lucide React](https://img.shields.io/badge/-Lucide_React-F56565?style=for-the-badge)
 
 ## Screenshot
 
@@ -35,9 +35,9 @@ A responsive currency converter app that allows users to check exchange rates, s
 
 ## Links
 
-* Solution URL: https://github.com/codewithMycah/fxchecker
-* Live Site URL: https://fxchecker.mycahaccad.com/
-* GitHub Repo: https://github.com/codewithMycah/fxchecker
+* [Solution URL](https://www.frontendmentor.io/solutions/foreign-exchange-currency-converter-gQJhnPr8Hr)
+* [Live Site URL](https://fxchecker.mycahaccad.com/)
+* [GitHub Repo](https://github.com/codewithMycah/fxchecker)
 
 
 ## Getting Started
@@ -73,7 +73,13 @@ While building this project, I practiced working with API data, React state mana
 
 ## Continued Development
 
-In the future, I want to improve the app by adding better chart interactions, more historical exchange rate comparisons, and database for account, saved favorites and logs.
+In the future, I want to improve the app by adding more features below:
+- [ ] Persist the active pair in the URL so a conversion can be bookmarked or shared
+- [ ] Add keyboard shortcuts for the search, currency swap, and chart ranges
+- [ ] Export the conversion log as a CSV file
+- [ ] Add a hover crosshair to the chart showing the date and rate under the cursor
+- [ ] Cache the last rates and show an out-of-date banner when the API is unreachable
+- [ ] Add accounts and a backend so favorites and the log sync across devices
 
 ## Author
 
