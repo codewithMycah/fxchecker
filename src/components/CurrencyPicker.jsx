@@ -91,6 +91,7 @@ export default function CurrencyPicker({ defaultCurrency, setDefaultCurrency }) 
               <input
                 type="text"
                 placeholder="Search currencies..."
+                onChange={e => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 rounded-lg border border-neutral-200 bg-transparent text-neutral-50 placeholder:text-neutral-300"
               />
             </div>
