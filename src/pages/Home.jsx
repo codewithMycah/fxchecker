@@ -36,7 +36,7 @@ const Home = () => {
   }
 
   const addToLog = () => {
-    const numAmount = parseFloat(amount)
+    const numAmount = parseFloat(amount).toLocaleString()
     if (!numAmount || numAmount <= 0 || rate === null) return
     const entry = {
       id: Date.now(),
@@ -44,7 +44,7 @@ const Home = () => {
       amount: numAmount,
       currency1,
       currency2,
-      converted: parseFloat((numAmount * rate).toFixed(4)),
+      converted: parseFloat((numAmount * rate).toFixed(2)).toLocaleString(),
     }
     setConversionLog(prev => [entry, ...prev])
   }

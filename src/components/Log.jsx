@@ -40,15 +40,17 @@ const Log = ({ conversionLog = [], clearLog, removeLogEntry }) => {
 
   return (
     <div className="bg-neutral-700 px-4 py-5 rounded-lg">
-      <h1 className="text-preset-3-med uppercase">Conversion Log</h1>
-      <div className="flex items-center justify-between mt-4 mb-4">
-        <span className="text-preset-4 text-neutral-200">
-          {conversionLog.length} LOGGED
-        </span>
+      <div className="flex items-center justify-between mb-4">
+        <div className="w-full flex flex-col gap-4 md:flex-row md:items-center justify-between my-2 mr-4">
+          <h1 className="text-preset-3-med uppercase">Conversion Log</h1>
+          <span className="text-preset-4 text-neutral-200">
+            {conversionLog.length} LOGGED
+          </span>
+        </div>
         <button
           type="button"
           onClick={clearLog}
-          className="button-outline-gray text-preset-5 hover:cursor-pointer"
+          className="button-outline-gray text-preset-5 hover:cursor-pointer whitespace-nowrap"
         >
           Clear All
         </button>
@@ -60,7 +62,7 @@ const Log = ({ conversionLog = [], clearLog, removeLogEntry }) => {
             className="flex items-center justify-between bg-neutral-600 border border-neutral-500 rounded-xl px-5 py-3"
           >
             <div className="flex items-center justify-between w-full mr-4">
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col md:flex-row md:items-center gap-3">
                 <p className="text-preset-4 text-neutral-200">{formatTimestamp(timestamp)}</p>
                 <span className="text-preset-3 text-neutral-50 flex flex-row items-center gap-2">   
                   {currency1} 
@@ -68,7 +70,7 @@ const Log = ({ conversionLog = [], clearLog, removeLogEntry }) => {
                   {currency2}
                 </span>
               </div>
-              <div className="flex flex-col items-end gap-4 text-preset-3 ">
+              <div className="flex flex-col items-end md:flex-row gap-4 text-preset-3 ">
                 <span className="text-neutral-50">
                   {amount}
                 </span>
