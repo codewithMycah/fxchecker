@@ -5,7 +5,14 @@ import Compare from "./Compare"
 import Favorites from "./Favorites"
 import Log from "./Log"
 
-const Details = ({ currency1, currency2 }) => {
+const Details = ({
+  currency1, currency2,
+  amount,
+  favorites,
+  conversionLog,
+  addFavorite, removeFavorite, loadFavorite,
+  clearLog, removeLogEntry,
+}) => {
   const [selected, setSelected] = useState("history")
   const [isOpen, setIsOpen] = useState(false)
 
@@ -15,10 +22,15 @@ const Details = ({ currency1, currency2 }) => {
   }
 
   const tabContent = {
-    history: <History currency1={currency1} currency2={currency2} />,
-    compare: <Compare />,
-    favorites: <Favorites />,
-    log: <Log />,
+    history:   <History currency1={currency1} currency2={currency2} />,
+    compare:   <Compare currency1={currency1} amount={amount} favorites={favorites} addFavorite={addFavorite} removeFavorite={removeFavorite} />,
+    favorites: <Favorites favorites={favorites} loadFavorite={loadFavorite} removeFavorite={removeFavorite} currency1={currency1} currency2={currency2} />,
+    log:       <Log conversionLog={conversionLog} clearLog={clearLog} removeLogEntry={removeLogEntry} />,
+  }
+
+  const badges = {
+    favorites: favorites.length,
+    log: conversionLog.length,
   }
 
   return (
@@ -43,14 +55,11 @@ const Details = ({ currency1, currency2 }) => {
                 className="flex items-center justify-between m-3 text-left text-preset-3 uppercase text-neutral-50"
               >
                 <span className="inline-flex items-center justify-center leading-none">{tab}</span>
-                {tab === "favorites" || tab === "log" 
-                  ? 
-                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-lime-800 text-lime-500 text-preset-6">
-                      0
-                    </span>
-                  :
-                    ""
-                }
+                {badges[tab] !== undefined && (
+                  <span className="flex items-center justify-center w-5 h-5 rounded-full bg-lime-500 text-badge text-preset-6">
+                    {badges[tab]}
+                  </span>
+                )}
               </div>
             ))}
           </div>
@@ -69,14 +78,11 @@ const Details = ({ currency1, currency2 }) => {
             }`}
           >
             <span className="inline-flex items-center justify-center leading-none">{tab}</span>
-            {tab === "favorites" || tab === "log" 
-              ? 
-                <span className="flex items-center justify-center w-5 h-5 rounded-full bg-lime-800 text-lime-500 text-preset-6">
-                  0
-                </span>
-              :
-                ""
-            }
+            {badges[tab] !== undefined && (
+              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-lime-500 text-badge text-preset-6">
+                {badges[tab]}
+              </span>
+            )}
           </div>
         ))}
       </div>

@@ -6,34 +6,19 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import './index.css'
 import App from './App.jsx'
 
-const isDarkTheme = false
-const darkThemeStyles = {
-  baseColor: '#374151',
-  highlightColor: '#151c2b',
-}
-const lightThemeStyles = {
-  baseColor: '#171719',
-  highlightColor: '#454547',
-}
+const savedTheme = localStorage.getItem("theme")
+const isDarkTheme = savedTheme !== "light"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <SkeletonTheme
-      baseColor={
-        isDarkTheme
-          ? darkThemeStyles.baseColor
-          : lightThemeStyles.baseColor
-      }
-      highlightColor={
-        isDarkTheme
-          ? darkThemeStyles.highlightColor
-          : lightThemeStyles.highlightColor
-      }
-      duration={2}
-    >
-      <ThemeProvider>
+    <ThemeProvider>
+      <SkeletonTheme
+        baseColor={isDarkTheme ? "#0A0A0A" : "#E8E8E8"}
+        highlightColor={isDarkTheme ? "#575759" : "#575759"}
+        duration={2}
+      >
         <App />
-      </ThemeProvider>
-    </SkeletonTheme>
+      </SkeletonTheme>
+    </ThemeProvider>
   </StrictMode>,
 )

@@ -9,6 +9,7 @@ import {
   Tooltip,
 } from "chart.js"
 import { Line } from "react-chartjs-2"
+import { useTheme } from "./ThemeProvider"
 
 ChartJS.register(
   LineElement,
@@ -20,27 +21,23 @@ ChartJS.register(
   Tooltip
 )
 
-const sampleRates = [
-  { date: "May 20", rate: 0.9215 },
-  { date: "May 23", rate: 0.9231 },
-  { date: "May 26", rate: 0.9208 },
-  { date: "May 29", rate: 0.9264 },
-  { date: "Jun 1", rate: 0.9292 },
-  { date: "Jun 4", rate: 0.9278 },
-  { date: "Jun 7", rate: 0.9316 },
-  { date: "Jun 10", rate: 0.9341 },
-  { date: "Jun 13", rate: 0.9327 },
-  { date: "Jun 16", rate: 0.9358 },
-  { date: "Jun 19", rate: 0.9372 },
-]
+const formatLabel = (dateStr) =>
+  new Date(dateStr).toLocaleDateString("en-US", { month: "short", day: "numeric" })
 
-const SampleChart = () => {
+const SampleChart = ({ chartData = [], currency1 = "USD", currency2 = "EUR" }) => {
+  const { theme } = useTheme()
+  const isDark = theme === "dark"
+  const gridColor = isDark ? "rgba(255,255,255,.06)" : "rgba(0,0,0,.07)"
+  const tickColor = isDark ? "#a3a3a3" : "#888888"
+  const labels = chartData.map(item => formatLabel(item.date))
+  const rates = chartData.map(item => item.rate)
+
   const data = {
-    labels: sampleRates.map((item) => item.date),
+    labels,
     datasets: [
       {
-        label: "USD to EUR",
-        data: sampleRates.map((item) => item.rate),
+        label: `${currency1} to ${currency2}`,
+        data: rates,
         borderColor: "#C8F169",
         borderWidth: 3,
         pointRadius: 0,
@@ -78,7 +75,7 @@ const SampleChart = () => {
       },
       tooltip: {
         callbacks: {
-          label: (context) => `1 USD = ${context.parsed.y} EUR`,
+          label: (context) => `1 ${currency1} = ${context.parsed.y} ${currency2}`,
         },
       },
     },
@@ -88,16 +85,16 @@ const SampleChart = () => {
           display: false,
         },
         ticks: {
-          color: "#a3a3a3",
+          color: tickColor,
         },
       },
       y: {
         beginAtZero: false,
         grid: {
-          color: "rgba(255,255,255,.06)",
+          color: gridColor,
         },
         ticks: {
-          color: "#a3a3a3",
+          color: tickColor,
           callback: (value) => value.toFixed(4),
         },
       },
@@ -105,11 +102,9 @@ const SampleChart = () => {
   }
 
   return (
-    <>
-      <div className="h-72 mt-5">
-        <Line data={data} options={options} />
-      </div>
-    </>
+    <div className="h-72 mt-5">
+      <Line data={data} options={options} />
+    </div>
   )
 }
 
